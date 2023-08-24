@@ -54,11 +54,40 @@ class RecipeManagementSystem {
 	     }
 	 }
 	 
-	 public void viewRecipes() {
-	     for (Recipe recipe : recipes) {
-	         // Display recipe information
-	     }
-	 }
+	 
+		 public void displayRecipeInfo(String recipeName) {
+		        for (Recipe recipe : recipes) {
+		            if (recipe.getName().equals(recipeName)) {
+		                System.out.println("Recipe: " + recipe.getName());
+		                System.out.println("Ingredients:");
+		                for (String ingredient : recipe.getIngredients()) {
+		                    System.out.println("- " + ingredient);
+		                }
+		                System.out.println("Preparation Steps:");
+		                for (int i = 0; i < recipe.getPreparationSteps().size(); i++) {
+		                    System.out.println((i + 1) + ". " + recipe.getPreparationSteps().get(i));
+		                }
+		                System.out.println("Likes: " + recipe.getLikes());
+		                break;
+		            }
+		        }
+		    }
+
+		public void viewRecipes() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void likeRecipe(String string) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void addRecipe(String string, List<String> asList, List<String> asList2) {
+			// TODO Auto-generated method stub
+			
+		}
+	 
 	 
 	 // Other methods for filtering, liking recipes, etc.
 	}
