@@ -45,13 +45,22 @@ public class Main {
      rms.loginUser(loginUsername, loginPassword);
      
      while (true) {
-         System.out.println("\nSelect an option:");
+    	 System.out.println("\nSelect an option:");
          System.out.println("1. View recipes");
          System.out.println("2. Like a recipe");
-         if (rms.getLoggedInUser() instanceof Admin) {
+         if (rms.LoggedInUser() instanceof Admin) {
+        	 Admin adminUser = rms.LoggedInUser();
+        	 if (adminUser != null) {
              System.out.println("3. Add a recipe");
-         }
-         System.out.println("4. Exit");
+             System.out.println("4. Generate reports");
+             adminUser.generateReports(rms.getRecipes());
+        	    } else {
+        	        System.out.println("Only admins can perform this action.");
+        	    }
+        	} else {
+        	    System.out.println("Only admins can perform this action.");
+        	}
+         System.out.println("5. Exit");
          System.out.print("Enter your choice: ");
          int choice = scanner.nextInt();
          scanner.nextLine(); // Consume the newline
@@ -87,6 +96,14 @@ public class Main {
                  }
                  break;
              case 4:
+                 if (rms.LoggedInUser() instanceof Admin) {
+                     ((Admin) rms.LoggedInUser()).generateReports(rms.getRecipes());
+                 } else {
+                     System.out.println("Only admins can generate reports.");
+                 }
+                 break;
+                
+             case 5:
                  System.out.println("Thank you for using the Recipe Management System!");
                  return;
              default:

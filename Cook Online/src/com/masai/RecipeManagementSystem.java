@@ -87,6 +87,16 @@ class RecipeManagementSystem {
 			// TODO Auto-generated method stub
 			
 		}
+
+		public Admin LoggedInUser() {
+//			if (loggedInUser instanceof Admin) {
+//	            return (Admin) loggedInUser;
+//	        } else {
+	            return null; // Return null if the logged-in user is not an admin
+//	        }
+		}
+
+		
 	 
 	 
 	 // Other methods for filtering, liking recipes, etc.
